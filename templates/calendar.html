@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h1>Campus Event Calendar</h1>
+    <p>Explore all college events, club activities and academic deadlines. Filter, search and RSVP in one place.</p>
+
+    <!-- Top controls: search + filters -->
+    <div class="calendar-controls">
+        <div class="calendar-search">
+            <input type="text" id="searchInput" placeholder="Search by event name or location...">
+        </div>
+        <div class="calendar-filters">
+            <button type="button" class="filter-btn active" data-category="all">All</button>
+            <button type="button" class="filter-btn" data-category="Seminar">Seminars</button>
+            <button type="button" class="filter-btn" data-category="Club">Clubs</button>
+            <button type="button" class="filter-btn" data-category="Academic">Academics</button>
+        </div>
+        <div class="calendar-extra">
+            <label class="toggle-today">
+                <input type="checkbox" id="todayToggle">
+                <span>Show today only</span>
+            </label>
+            <span id="eventCount" class="event-count">0 events</span>
+        </div>
+    </div>
+
+    <div class="calendar-layout">
+        <!-- LEFT: event list / timeline -->
+        <div>
+            <h2>Upcoming Events</h2>
+            <div id="eventsList" class="events-list">
+                <!-- Events will be injected here by JS -->
+            </div>
+        </div>
+
+        <!-- RIGHT: notifications + your RSVPs -->
+        <div>
+            <h2>My Reminders</h2>
+            <p class="small-text">Enter your name to see events you RSVPed for in the next 24 hours.</p>
+            <div class="form-row">
+                <input type="text" id="notifName" placeholder="Your name for reminders">
+                <button type="button" id="notifBtn">Load My Reminders</button>
+            </div>
+            <ul id="notifications" class="notifications-list"></ul>
+
+            <div class="hint-box">
+                <h3>How this calendar helps you</h3>
+                <ul>
+                    <li>View all campus events in one scrollable timeline.</li>
+                    <li>RSVP to lock reminders to your name.</li>
+                    <li>See events happening within the next 24 hours.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+{% endblock %}

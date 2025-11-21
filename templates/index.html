@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <div class="hero-left">
+        <div class="hero-pill">Integrated Campus Platform</div>
+        <h1>Events, Attendance & Engagement in one smart dashboard.</h1>
+        <p class="hero-sub">
+            CampusAI Hub combines a colorful event calendar with AI-based
+            face tracking to mark attendance and measure how engaged the class is – live.
+        </p>
+
+        <div class="hero-highlights">
+            <div class="hero-chip">
+                📅 Unified event calendar
+            </div>
+            <div class="hero-chip">
+                🎥 Face & eye tracking
+            </div>
+            <div class="hero-chip">
+                📊 Live engagement analytics
+            </div>
+        </div>
+
+        <div class="hero-actions">
+            <a href="{{ url_for('calendar_page') }}" class="btn-primary">View Events</a>
+            <a href="{{ url_for('classroom_page') }}" class="btn-ghost">Start AI Attendance</a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="hero-card hero-card-events">
+            <h3>Today on Campus</h3>
+            <ul>
+                <li><span class="dot dot-blue"></span> Tech Talk – AI in Education</li>
+                <li><span class="dot dot-green"></span> Coding Club Hackathon</li>
+                <li><span class="dot dot-orange"></span> Discrete Math Mid-Sem</li>
+            </ul>
+        </div>
+        <div class="hero-card hero-card-metrics">
+            <h3>Live Class Snapshot</h3>
+            <div class="metrics-row">
+                <div>
+                    <div class="metric-label">Avg Engagement</div>
+                    <div class="metric-value">87%</div>
+                </div>
+                <div>
+                    <div class="metric-label">Students Present</div>
+                    <div class="metric-value">42</div>
+                </div>
+            </div>
+            <div class="metric-bar">
+                <div class="metric-bar-fill"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="card grid-3 home-sections">
+    <a href="{{ url_for('calendar_page') }}" class="home-card">
+        <h2>Event Calendar & RSVPs</h2>
+        <p>
+            Browse all college events, club activities and academic deadlines.
+            Students can RSVP and receive reminder notifications.
+        </p>
+        <span class="badge badge-blue">Scheduling · Clubs · Exams</span>
+    </a>
+
+    <a href="{{ url_for('classroom_page') }}" class="home-card">
+        <h2>AI Attendance & Focus</h2>
+        <p>
+            Uses camera + AI to detect faces and eye openness to mark attendance
+            and calculate engagement scores over time.
+        </p>
+        <span class="badge badge-green">Face Tracking · Eye Blinks</span>
+    </a>
+
+    <a href="{{ url_for('teacher_page') }}" class="home-card">
+        <h2>Teacher Analytics</h2>
+        <p>
+            Teachers get a live dashboard with present students, their attention levels,
+            and engagement graphs for each class.
+        </p>
+        <span class="badge badge-orange">Dashboards · Charts</span>
+    </a>
+</section>
+{% endblock %}

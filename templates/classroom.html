@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h1>AI Attendance & Engagement – Student</h1>
+    <p>Enter your name and class code, then start monitoring. Your face and engagement are tracked for attendance.</p>
+
+    <div class="form-row">
+        <input type="text" id="studentName" placeholder="Your name">
+        <input type="text" id="classCode" placeholder="Class code (e.g. CSE-AI-101)">
+        <button type="button" id="startBtn">Start Monitoring</button>
+    </div>
+
+    <div id="statusText" class="status">Waiting to start...</div>
+
+    <div id="video-container" class="video-wrapper hidden">
+        <video id="inputVideo" class="input_video" autoplay playsinline></video>
+        <canvas id="outputCanvas" class="output_canvas"></canvas>
+    </div>
+
+    <div class="engagement-panel hidden" id="engagementPanel">
+        <h2>Engagement Score</h2>
+        <div class="score-display">
+            <span>Score:</span>
+            <span id="engagementScore">0</span> / 100
+        </div>
+        <div class="tags">
+            <span id="sleepyTag" class="tag">Sleepy: No</span>
+            <span id="distractedTag" class="tag">Distracted: No</span>
+        </div>
+    </div>
+</section>
+
+<!-- MediaPipe scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+
+<script src="{{ url_for('static', filename='js/classroom.js') }}"></script>
+{% endblock %}

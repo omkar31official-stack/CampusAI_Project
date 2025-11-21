@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+    <h1>Teacher Dashboard</h1>
+    <p>Monitor live attendance and engagement for a class.</p>
+
+    <div class="form-row">
+        <input type="text" id="dashClassCode" placeholder="Class code (e.g. CSE-AI-101)">
+        <button type="button" id="dashLoadBtn">Load Class</button>
+    </div>
+
+    <div id="dashStatus" class="status">Enter a class code to view data.</div>
+
+    <div class="dashboard-grid hidden" id="dashboardGrid">
+        <div class="panel">
+            <h2>Live Students</h2>
+            <table id="studentsTable">
+                <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Engagement</th>
+                    <th>Last Seen</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="panel">
+            <h2>Average Engagement Over Time</h2>
+            <canvas id="engagementChart"></canvas>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

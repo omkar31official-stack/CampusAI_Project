@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CampusAI Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<header class="top-bar">
+    <div class="logo">CampusAI Hub</div>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('calendar_page') }}">Event Calendar</a>
+        <a href="{{ url_for('classroom_page') }}">Student Class</a>
+        <a href="{{ url_for('teacher_page') }}">Teacher Dashboard</a>
+    </nav>
+</header>
+
+<main class="content">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    <p>Integrated Campus Event Calendar & AI Attendance Tracker • Demo</p>
+</footer>
+</body>
+</html>
